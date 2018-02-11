@@ -1,0 +1,20 @@
+# Prefix is Ctrl-f
+unbind-key C-b
+set-option -g prefix C-f
+bind-key C-f send-prefix
+
+# Set tmux to copy to the system clipboard
+bind-key -t vi-copy y copy-pipe "xclip -in -selection clipboard"
+
+# Enables mouse mode
+set-option -g mouse-utf8 on
+set-option -g mouse on
+
+# Sets copy-mode to vi
+set-window-option -g mode-keys vi
+
+# Enabling vim style pane navigation
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R

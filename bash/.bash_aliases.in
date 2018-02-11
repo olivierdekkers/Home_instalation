@@ -1,0 +1,70 @@
+. ${FILESEARCH_SCRIPT_FILE} 
+. ${GIT_SCRIPT_FILE}
+
+# Super-lazy aliases #
+######################
+
+# git
+alias s="git status"
+alias c="git commit -m"
+alias ca="git commit -a -m"
+alias amend="git commit --amend"
+alias aa="git add -A"
+alias au="git add -u"
+alias push="git push"
+alias pus="git push"
+alias pull="git pull"
+alias pul="git pull"
+alias checkout="git checkout"
+alias re="git reset"
+alias reset="git reset"
+alias d="git diff"
+alias diff="git diff"
+alias me="git merge"
+alias merge="git merge"
+alias stash="git stash"
+alias stas="git stash"
+alias binfo="git branch -vv"
+alias bclean="git branch --merged master | grep -v master | xargs -n 1 git branch -d"
+alias subm="git submodule update --init --recursive"
+
+# kitchen
+alias kv="kitchen verify"
+alias kd="kitchen destroy"
+alias kc="kitchen converge"
+alias kr="kitchen destroy;kitchen converge"
+
+# bash 
+alias reload="source ~/.bashrc"
+alias exit="tmux detach && exit"
+
+# path
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
+alias cd..="cd .."
+alias cd...="cd ../.."
+alias cd....="cd ../../.."
+
+alias cd-="cd -"
+
+# grep
+alias usages=list_occurrences
+alias count=count_occurrences
+alias replace=replace_text
+
+# ls
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# apt-get
+alias install="sudo apt-get install"
+ 
+# stylish
+alias style="astyle --style=allman --indent=force-tab --indent-cases --break-blocks --pad-oper --pad-header -k1 -W1 -j -O"
+alias pre="style *.cpp *.h"
+
+# python
+alias py="python"

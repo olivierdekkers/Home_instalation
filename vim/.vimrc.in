@@ -1,0 +1,81 @@
+" Default settings
+syntax on
+set number
+set encoding=utf-8
+set nocompatible
+set clipboard=unnamed
+set backspace=indent,eol,start
+set expandtab
+set tabstop=4
+set shiftwidth=2
+set textwidth=80
+
+filetype off
+
+" NERD tree
+map <C-n> :NERDTreeToggle<CR>
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
+let g:nerdtree_tabs_open_on_console_startup=1
+" autocmd vimenter * NERDTree
+" autocmd VimEnter * wincmd p
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Highlight groups
+highlight BadWhitespace ctermbg=red guibg=red
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+
+" Matching over legth
+match OverLength /\%81v.\+/
+set colorcolumn=81
+
+" Handy strip function
+function! Strip(input_string)
+        return substitute(a:input_string, '^\s*\(.\{-}\)[\s\n]*$', '\1', '')
+endfunction
+
+${BODY}
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+nnoremap <space> za
+let g:SimplyFold_docstring_preview=1
+
+" Remap pane movement
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Remap parenthesis expansion
+inoremap (     ()<Esc>i
+inoremap {     {}<Esc>i
+inoremap [     []<Esc>i
+inoremap <     <><Esc>i
+inoremap "     ""<Esc>i
+inoremap '     ''<Esc>i
+
+" Jenkinsfile
+au BufRead,BufNewFile Jenkinsfile,Jenkinsfile.*
+        \ setf groovy |
+        \ set tabstop=2 |
+		\ set shiftwidth=2 | 
+		\ set expandtab |
+        \ set smartindent |
+  		\ match BadWhitespace /^\t\+/ |
+		\ match BadWhitespace /\s\+$/ |
+		\ set fileformat=unix
+
+" C
+au BufRead,BufNewFile *.c,*.h
+    \ set tabstop=4 |
+		\ match BadWhitespace /\s\+$/ |
+		\ set fileformat=unix
+
+" Web indentation
+au BufNewFile,BufRead *.js, *.html, *.css
+		\ set tabstop=2 |
+		\ set softtabstop=2 |
+		\ set shiftwidth=2
+
+filetype plugin indent on 	" required
