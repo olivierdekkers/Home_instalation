@@ -109,6 +109,6 @@ fi
 # Tmux startup
 if command -v tmux>/dev/null; then
 	if [ ! -z "$PS1" ]; then
-		[[ ! $TERM =~ screen ]] && [ -z "$TMUX" ] && tmux new -A -s main
+		[[ ! $TERM =~ screen ]] && [ -z "$TMUX" ] && tmux new -A 
 	fi
 fi
