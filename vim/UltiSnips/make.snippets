@@ -1,0 +1,36 @@
+priority -50
+
+global !p
+def company():
+    c = os.environ['USER_NAME']
+    return "Company: " + c if c else ""
+endglobal
+
+snippet #! "Shebang" b
+#!/usr/bin/make
+endsnippet
+
+snippet ### "Enclose with tile" b
+### ${1:Text} ###
+endsnippet
+
+snippet head "File header" b
+#!/usr/bin/make
+#
+# ${1:Summary}
+#
+# Created on: `date +%d.%m.%y`
+endsnippet
+
+snippet $
+$(${1})
+endsnippet
+
+snippet body "Body surronding makefiles" b
+ifndef __${1}
+__`!p t[1]`:=''
+
+
+
+endif #__`!p t[1]`
+endsnippet
