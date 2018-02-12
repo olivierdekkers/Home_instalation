@@ -106,6 +106,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
+cd ~/workspace
+
 # Tmux startup
 if command -v tmux>/dev/null; then
 	if [ ! -z "$PS1" ]; then
