@@ -68,3 +68,13 @@ alias pre="style *.cpp *.h"
 
 # python
 alias py="python"
+#play hallelujah
+succeed() {
+ if $1 "${@:2}"; then
+  alert
+  play -V0 -q --buffer 16000 /home/olivier/files/hallelujahshort.swf.mp3 
+else
+  alert
+  play -V0 -q --buffer 16000 /home/olivier/files/nooo.swf.mp3
+fi
+}
