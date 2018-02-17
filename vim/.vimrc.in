@@ -23,6 +23,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Highlight groups
 highlight BadWhitespace ctermbg=red guibg=red
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+hi Search cterm = NONE ctermfg=grey ctermbg=DarkMagenta
 
 " Matching over legth
 match OverLength /\%81v.\+/
