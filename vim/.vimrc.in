@@ -9,16 +9,18 @@ set expandtab
 set tabstop=4
 set shiftwidth=2
 set textwidth=80
+set smartindent
+set incsearch
 
 filetype off
 
 " NERD tree
 map <C-n> :NERDTreeToggle<CR>
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
-let g:nerdtree_tabs_open_on_console_startup=1
-autocmd vimenter * NERDTree
-autocmd VimEnter * wincmd p
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+""let g:nerdtree_tabs_open_on_console_startup=1
+""autocmd vimenter * NERDTree
+""autocmd VimEnter * wincmd p
+""autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Highlight groups
 set hlsearch
@@ -81,3 +83,65 @@ au BufNewFile,BufRead *.js, *.html, *.css
 		\ set shiftwidth=2
 
 filetype plugin indent on 	" required
+
+"" save when losing focus
+au FocusLost * :silent! wall
+
+" Leader
+let mapleader = ","
+let maplocalleader = "\\"
+
+
+" Make sure Vim returns to the same line when you reopen a file.
+" " Thanks, Amit
+augroup line_return
+     au!
+     au BufReadPost *
+       \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \     execute 'normal! g`"zvzz' |
+        \ endif
+augroup END
+
+" substitute
+map <c-s> :%s
+map <c-s> :s/
+
+" Zip Right
+" "
+" " Moves the character under the cursor to the end of the line.  Handy when you
+" " have something like:
+" "
+" "     foo
+" "
+" " And you want to wrap it in a method call, so you type:
+" "
+" "     println()foo
+" "
+" " Once you hit escape your cursor is on the closing paren, so you can 'zip' it
+" " over to the right with this mapping.
+" "
+" " This should preserve your last yank/delete as well.
+nnoremap zl :let @z=@"<cr>x$p:let @"=@z<cr>
+
+
+nnoremap <leader>et :vsplit ~/.tmux.conf<cr>
+nnoremap <leader>ev :vsplit ~/.vimrc<cr>
+
+" Made D behave
+nnoremap D d$
+
+
+" Easier to type, and I never use the default behavior.
+noremap H ^
+noremap L $
+vnoremap L g_
+
+" Heresy
+inoremap <c-a> <esc>I
+inoremap <c-e> <esc>A
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
+
+"FuzzyFinder
+inoremap <c-T> <esc>:FZF<ENTER>
+nnoremap <c-T> <esc>:FZF<ENTER>
