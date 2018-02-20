@@ -137,10 +137,10 @@ noremap L $
 vnoremap L g_
 
 " Heresy
-inoremap <c-a> <esc>I
-inoremap <c-e> <esc>A
-cnoremap <c-a> <home>
-cnoremap <c-e> <end>
+inoremap <c-i> <esc>I
+inoremap <c-a> <esc>A
+cnoremap <c-i> <home>
+cnoremap <c-a> <end>
 
 "FuzzyFinder
 inoremap <c-T> <esc>:FZF<ENTER>
@@ -178,3 +178,7 @@ map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
+
+" Keep search matches in the middle of the window.
+nnoremap n nzzzv
+nnoremap N Nzzzv
