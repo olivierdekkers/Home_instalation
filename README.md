@@ -22,3 +22,12 @@ These makefiles installs `vim`, `tmux` and configures `bash_aliases` and the
 installed tools.
 Is a basic bootstrap that for my personal needs.
 # Home_instalation
+
+
+##TODO
+
+Auto install fuzzyfinder
+
+Fix installation easy-motion
+
+change permisions of .viminfo to user for return to last edited line
