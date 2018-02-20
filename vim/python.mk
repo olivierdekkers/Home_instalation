@@ -20,6 +20,8 @@ au BufRead,BufNewFile *.py,*.pyw
 		\ match BadWhitespace /\s\+$$/ |
 		\ set textwidth=100 |
 		\ set fileformat=unix |
+		\ set colorcolumn=81 |
+ 	        \ highlight colorcolumn ctermbg=gray |
 au BufRead,BufNewFile *.py 
 		\ set softtabstop=4
 let python_highlight_all=1
