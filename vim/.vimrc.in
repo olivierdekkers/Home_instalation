@@ -8,7 +8,6 @@ set backspace=indent,eol,start
 set expandtab
 set tabstop=4
 set shiftwidth=2
-set textwidth=80
 set smartindent
 set incsearch
 
@@ -27,10 +26,6 @@ set hlsearch
 highlight BadWhitespace ctermbg=red guibg=red
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 hi Search cterm = NONE ctermfg=grey ctermbg=DarkMagenta
-
-" Matching over legth
-match OverLength /\%81v.\+/
-set colorcolumn=81
 
 " Handy strip function
 function! Strip(input_string)
@@ -182,3 +177,8 @@ map <Leader>h <Plug>(easymotion-linebackward)
 " Keep search matches in the middle of the window.
 nnoremap n nzzzv
 nnoremap N Nzzzv
+
+" autopop 8 fixing indenting and linting with F8"
+let g:autopep8_max_line_length=79
+autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
+
