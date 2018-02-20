@@ -31,3 +31,6 @@ Auto install fuzzyfinder
 Fix installation easy-motion
 
 change permisions of .viminfo to user for return to last edited line
+
+https://github.com/tell-k/vim-autopep8
+
