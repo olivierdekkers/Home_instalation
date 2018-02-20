@@ -112,3 +112,7 @@ if command -v tmux>/dev/null; then
 		[[ ! $TERM =~ screen ]] && [ -z "$TMUX" ] && tmux new -A -s main
 	fi
 fi
+
+
+#To fix hanging when pressing ctrl +s
+stty -ixon
