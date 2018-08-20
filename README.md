@@ -4,9 +4,7 @@ Some assistance to deal with home maintenance
 
 ## Usage
 
-Clone this repo:
-
-  `git clone https://github.com/edupo/home-assistant.git`
+Clone this repo
 
 Execute the install and configuration targets:
 
